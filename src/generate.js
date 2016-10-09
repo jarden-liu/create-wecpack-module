@@ -23,7 +23,7 @@
     }
 
     function generateModuleJS(name) {
-        writeFile('index', '.js', 'ModuleJS');
+        writeFile(name, '.js', 'ModuleJS', true);
     }
 
     function generateHtml(name) {
@@ -42,8 +42,10 @@
         writeFile(name, 'Router.js', 'Router');
     }
 
-    function writeFile(name, suffix, tag) {
-        var temp = fs.readFileSync(path.resolve(__dirname, '..', 'template', 'Base' + suffix));
+    function writeFile(name, suffix, tag, isIndex) {
+        var filename = isIndex ? 'index' : 'Base';
+        var filepath = path.resolve(__dirname, '..', 'template', filename + suffix);
+        var temp = fs.readFileSync(filepath);
         var newFileText = temp.toString().replace(/Base/g, name);
 
         if (tag == 'Router') {
