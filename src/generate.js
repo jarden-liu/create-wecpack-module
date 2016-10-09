@@ -44,7 +44,9 @@
 
     function writeFile(name, suffix, tag, isIndex) {
         var filename = isIndex ? 'index' : 'Base';
+        var name = isIndex ? 'index' : name;
         var filepath = path.resolve(__dirname, '..', 'template', filename + suffix);
+
         var temp = fs.readFileSync(filepath);
         var newFileText = temp.toString().replace(/Base/g, name);
 
