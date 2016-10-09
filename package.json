@@ -1,6 +1,6 @@
 {
-  "name": "create-ionic-module",
-  "version": "0.0.1",
+  "name": "create-wecpack-module",
+  "version": "1.0.0",
   "description": "Auto generation module",
   "preferGlobal": "true",
   "bin": {
