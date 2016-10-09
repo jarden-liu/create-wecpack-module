@@ -23,7 +23,7 @@
     }
 
     function generateModuleJS(name) {
-        writeFile(name, '.js', 'ModuleJS', true);
+        writeIndexFile(name, '.js', 'ModuleJS');
     }
 
     function generateHtml(name) {
@@ -42,12 +42,8 @@
         writeFile(name, 'Router.js', 'Router');
     }
 
-    function writeFile(name, suffix, tag, isIndex) {
-        var filename = isIndex ? 'index' : 'Base';
-        var name = isIndex ? 'index' : name;
-        var filepath = path.resolve(__dirname, '..', 'template', filename + suffix);
-
-        var temp = fs.readFileSync(filepath);
+    function writeFile(name, suffix, tag) {
+        var temp = fs.readFileSync(path.resolve(__dirname, '..', 'template', 'Base' + suffix));
         var newFileText = temp.toString().replace(/Base/g, name);
 
         if (tag == 'Router') {
@@ -65,6 +61,17 @@
         });
     }
 
+    function writeIndexFile(name, suffix, tag) {
+        var temp = fs.readFileSync(path.resolve(__dirname, '..', 'template', 'index' + suffix));
+        var newFileText = temp.toString().replace(/Base/g, name);
+
+        fs.writeFile(name + '/index' + suffix, newFileText, function(err) {
+            if (err) {
+                return console.error(err);
+            }
+            console.log(tag + "写入成功！");
+        });
+    }
 
 
 })();
