@@ -1,7 +1,7 @@
 import BaseTemplate from './Base.html';
 import BaseCtrl from './BaseCtrl';
 
-export default function($stateProvider) {
+export default function BaseRouter($stateProvider) {
   'ngInject';
   $stateProvider
     .state('app.Base', {
