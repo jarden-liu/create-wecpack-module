@@ -1,9 +1,14 @@
-export default function BaseService() {
-  'ngInject';
+export default class BaseService {
+  constructor(HttpService) {
+    'ngInject';
+    angular.forEach(arguments, (arg, i) => this[BaseService.$inject[i]] = arg);
+  }
 
-  var service = {
-  };
-  return service;
-
-
+  // getGraduationStatus() {
+  //   return this.HttpService.tokenGet('jyGraduationStatus');
+  // }
+  //
+  // setTimeSetting(data) {
+  //   return this.HttpService.tokenPost('jyTimeSetting', data).then(this.HttpService.showMessage);
+  // }
 }
