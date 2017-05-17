@@ -16,6 +16,12 @@ export default class BaseCtrl {
     }
   }
 
+  // getGraduationStatus() {
+  //   this.$loading.show();
+  //   return this.service.getGraduationStatus().then(data => {
+  //     console.log(data);
+  //   }). finally(this.$loading.hide);
+  // }
 
 
   doRefresh() {
