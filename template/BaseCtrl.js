@@ -1,7 +1,7 @@
 
 export default class BaseCtrl {
 
-  constructor(BaseService, $scope) {
+  constructor(BaseService, $scope,StateService, $loading, $filter) {
     'ngInject';
     angular.forEach(arguments, (arg, i) => this[BaseCtrl.$inject[i]] = arg);
     this.service = BaseService;
@@ -14,5 +14,12 @@ export default class BaseCtrl {
       //   this.activated = true;
       // });
     }
+  }
+
+
+
+  doRefresh() {
+    // setTimeout(this.getGraduationStatus.bind(this), 200);
+    this.$scope.$broadcast('scroll.refreshComplete');
   }
 }

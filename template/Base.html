@@ -1,5 +1,10 @@
 <ion-view view-title="Base">
-  <ion-content>
+  <search-bar modal="vm.searchKeyWord" placeholder="在结果中搜索结果"></search-bar>
+  <ion-content class="has_header_search">
+    <!-- <ion-refresher pulling-text="下拉刷新..."  on-refresh="vm.doRefresh()"></ion-refresher> -->
+    <!-- <div ng-click="vm.showActionSheet(student)" collection-repeat="student in vm.studentList | filter:vm.searchKeyWord"
+    class="item item-row-margin item-row-font-14" item-width="100%" item-height="108px" >
+    </div> -->
 
   </ion-content>
 </ion-view>
